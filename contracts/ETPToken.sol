@@ -6,11 +6,11 @@ contract ETPv2Token{
     string public name = "Educate The People";
     string public symbol = "ETP";
     string public version = "ETP v1.4";
-    uint256 public feePercentage = 5*10**18;
-    uint256 public feeDivider = 100*10**18;
-    uint256 public decimals = 18; // 18 decimals
-    uint256 public totalSupply = 100000000*10**decimals ; //100 milllion 100000000
-    uint256 public maxFeeAmount = 50000*10**18; 
+    uint256 public feePercentage = 5 * 10**9;
+    uint256 public feeDivider = 100 * 10**9;
+    uint256 public decimals = 9;
+    uint256 public totalSupply = 100 * 10**6 * 10**9;
+    uint256 public maxFeeAmount = 50000 * 10**9; 
     uint public totalFee;
     address public feeCollector;
     
@@ -36,16 +36,16 @@ contract ETPv2Token{
     }
 
     constructor (address _owner) {
-        balanceOf[_owner] = balanceOf[_owner]+totalSupply;
+        balanceOf[msg.sender] = balanceOf[msg.sender]+totalSupply;
         totalFee == 0;
         feeCollector = _owner;
     }
     
     // Fee calculator for every transcation 
     function feeCalculation(uint value) public view returns(uint){
-        uint value1 = value*10**18;
+        uint value1 = value * 10**9;
         uint feeDeduct = (value1 * feePercentage) / feeDivider;
-        uint feeDeduction = feeDeduct/10**18;
+        uint feeDeduction = feeDeduct / 10**9;
         return feeDeduction;
     }
     
