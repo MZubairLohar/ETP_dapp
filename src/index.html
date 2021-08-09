@@ -8,11 +8,32 @@
   <title>ETP Sale</title>
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    div {
+      margin-top: 200px;
+      text-align: center;
+    }
+
+    small {
+      background-color: red;
+      padding: 8px;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
-  <input type="number" placeholder="amount" value='' id="amount">
-  <button type="button" id="buy"> Buy </button>
+  <div>
+    <h1>ETP Token Sale</h1>
+    <small>Please Connect Ropsten Test Network.</small> <br>
+    <br>
+    <p>10000 ETP = 1 ETH</p>
+    <input type="number" placeholder="tokens?" value='' id="amount">
+    <br><br>
+    <button type="button" id="buy"> Buy </button>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
   <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="application/javascript"></script>
   <!-- ================= bootstrap ==================== -->
